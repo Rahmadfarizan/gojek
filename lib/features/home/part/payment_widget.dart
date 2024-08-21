@@ -46,11 +46,11 @@ class PaymentWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Rp0",
+                "Rp28.500.000",
                 style: TextStyle(fontFamily: 'MaisonNeueBold', fontSize: 14),
               ),
               Text(
-                "0 Coins",
+                "460 Coins",
                 style: TextStyle(
                     fontFamily: 'MaisonNeueBook',
                     fontSize: 14,

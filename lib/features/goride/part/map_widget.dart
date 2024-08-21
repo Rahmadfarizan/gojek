@@ -7,6 +7,7 @@ import 'package:gojek/features/goride/page/map_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:image/image.dart' as img;
+import 'package:shimmer/shimmer.dart';
 
 class MapWidget extends StatefulWidget {
   const MapWidget({super.key});
@@ -71,10 +72,8 @@ class _MapWidgetState extends State<MapWidget> {
 
     final random = Random();
     for (int i = 0; i < 7; i++) {
-      final offsetLat = (random.nextDouble() - 0.5) /
-          250;
-      final offsetLng = (random.nextDouble() - 0.5) /
-          250; 
+      final offsetLat = (random.nextDouble() - 0.5) / 250;
+      final offsetLng = (random.nextDouble() - 0.5) / 250;
       final markerLat = position.latitude + offsetLat;
       final markerLng = position.longitude + offsetLng;
 
@@ -116,18 +115,25 @@ class _MapWidgetState extends State<MapWidget> {
     mapController = controller;
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 13, ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 13,
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15.0),
         child: SizedBox(
           height: 115,
           child: (isLoading)
-              ? const Center(
-                  child: CircularProgressIndicator(),
+              ? Shimmer.fromColors(
+                  baseColor: Colors.grey.shade300,
+                  highlightColor: Colors.grey.shade200,
+                  child: Container(
+                    color: Colors.white,
+                    height: 115,
+                    width: MediaQuery.of(context).size.width,
+                  ),
                 )
               : GoogleMap(
                   initialCameraPosition: CameraPosition(
@@ -135,14 +141,15 @@ class _MapWidgetState extends State<MapWidget> {
                       zoom: 16),
                   myLocationEnabled: true,
                   tiltGesturesEnabled: false,
-                  compassEnabled: true,
+                  compassEnabled: false,
                   scrollGesturesEnabled: false,
-                  zoomGesturesEnabled: true,
+                  zoomGesturesEnabled: false,
                   onMapCreated: _onMapCreated,
                   markers: Set<Marker>.of(markers.values),
                   mapType: MapType.normal,
                   zoomControlsEnabled: false,
-                  trafficEnabled: true,
+                  trafficEnabled: false,
+                  myLocationButtonEnabled: false,
                   onTap: (_) {
                     Navigator.push(
                         context,

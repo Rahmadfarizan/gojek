@@ -39,6 +39,8 @@ dependencies:
   geolocator: ^12.0.0
   geocoding: ^3.0.0
   image: ^4.2.0
+  shimmer: ^3.0.0
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +84,7 @@ flutter:
     - assets/icon/arrow_right_white.png
     - assets/icon/cross.png
     - assets/icon/star.png
+    - assets/icon/people.png
     #GoRide
     - assets/icon/goride/driver_pin_location.png
     - assets/icon/goride/pin_map.png
@@ -91,6 +94,15 @@ flutter:
     - assets/image/driver.png
     # GoRide
     - assets/image/goride/header.png
+    # Promo
+    - assets/image/promo/promo1.png
+    - assets/image/promo/promo2.png
+    - assets/image/promo/promo3.png
+    - assets/image/promo/promo4.png
+    - assets/image/promo/food1.jpg
+    - assets/image/promo/food2.jpg
+    - assets/image/promo/food3.jpg
+    - assets/image/promo/food4.jpg
   # Menu
     - assets/menu/goride.png
     - assets/menu/gocar.png
